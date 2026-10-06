@@ -1,0 +1,20 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Süper Lig Auction</title><link rel="stylesheet" href="style.css"></head><body>
+<section id="menu" class="screen on"><h1>SÜPER LİG <span>AUCTION</span></h1><p>20 TL. 2 Oyuncu. En iyi futbolcular için savaş.</p>
+<button data-go="localSetup">🏠 LOCAL PLAYER<small>Aynı cihazda iki kişi oynar.</small></button>
+<button data-go="mpMenu">🌐 MULTIPLAYER<small>Oda kurarak başka cihazdaki arkadaşla oyna.</small></button>
+<button data-go="settings">⚙️ AYARLAR</button><button data-go="how">❓ NASIL OYNANIR?</button></section>
+<section id="how" class="screen"><h2>NASIL OYNANIR?</h2><ol class="rules"><li>Her oyuncu 20 TL ile başlar.</li><li>Rastgele bir Süper Lig futbolcusu gelir.</li><li>Sırayla teklif verilir.</li><li>En yüksek teklifi veren futbolcuyu alır.</li><li>Ödediği miktar bütçesinden düşer.</li><li>Pas diyerek açık artırmadan çekilebilirsin.</li><li>Puan sistemi yoktur.</li><li>Amaç bütçeyi doğru kullanarak istediğin futbolcuları toplamaktır.</li></ol><button data-go="menu">← GERİ</button></section>
+<section id="settings" class="screen"><h2>AYARLAR</h2><label class="row">Ses <input type="checkbox" id="optSound"></label><label class="row">Tur sayısı <select id="optRounds"><option>10</option><option>15</option><option>20</option><option>30</option><option>40</option></select></label><p class="hint">Tur sayısı Local modu etkiler. Multiplayer 20 turdur.</p><button data-go="menu">← GERİ</button></section>
+<section id="localSetup" class="screen"><h2>OYUNCULAR</h2><label>OYUNCU 1<input id="n0" maxlength="14" value="Berk"></label><label>OYUNCU 2<input id="n1" maxlength="14" value="Yiğit"></label><button id="startLocal" class="gold">BAŞLA</button><button data-go="menu">← GERİ</button></section>
+<section id="mpMenu" class="screen"><h2>MULTIPLAYER</h2><label>İSMİN<input id="mpName" maxlength="14" value="Oyuncu"></label><button id="createBtn" class="gold">ODA OLUŞTUR</button><label>ODA KODU<input id="joinCode" maxlength="5" placeholder="A7K92" style="text-transform:uppercase"></label><button id="joinBtn">ODAYA KATIL</button><p id="mpErr" class="err"></p><button data-go="menu">← GERİ</button></section>
+<section id="lobby" class="screen"><h2>ODA KODUN</h2><div id="lobCode" class="code"></div><p id="lobPl"></p><button id="startMp" class="gold">OYUNU BAŞLAT</button><button data-go="menu">← ÇIK</button></section>
+<section id="game" class="screen"><div id="round"></div>
+<div class="players"><div class="pl" id="p0"><b></b><i></i></div><div class="pl" id="p1"><b></b><i></i></div></div>
+<div class="card" id="card"><small>SÜPER LİG</small><h2 id="pname"></h2><small>AÇIK ARTIRMADA</small></div>
+<div class="bidbox">MEVCUT TEKLİF<strong id="curbid"></strong><em id="bidder"></em></div><div id="turn"></div>
+<div class="btns"><button data-inc="1">+1 TL</button><button data-inc="2">+2 TL</button><button data-inc="5">+5 TL</button></div>
+<div class="custom"><input id="amt" type="number" inputmode="numeric" min="1" step="1" aria-label="Teklifini gir"><span>TL</span><button id="bidBtn" class="gold">TEKLİF VER</button></div>
+<button id="passBtn" class="pass">PAS</button></section>
+<section id="end" class="screen"><h2>OYUN BİTTİ</h2><div id="results"></div><button id="replayBtn" class="gold">YENİDEN OYNA</button><button id="endMenu">ANA MENÜ</button></section>
+<div id="sold"></div><div id="toast"></div>
+<script src="players.js"></script><script src="auction-core.js"></script><script src="game.js"></script><script src="multiplayer.js"></script></body></html>
